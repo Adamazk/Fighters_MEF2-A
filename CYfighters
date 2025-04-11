@@ -1,0 +1,29 @@
+typedef struct{
+    char nom;
+    int pv;
+    int pvmax;
+    int att;
+    int def;
+    int agi;
+    int vit;
+    technique spe;
+}personnage;
+
+typedef struct{
+    char nom;
+    personnage membre;
+}equipe;
+
+typedef struct{
+    char nom;
+    char description;
+}technique_spe;
+
+void tech1(personnage p1){
+    p1.def += p1.def*50/100;
+
+}
+
+void tech2(personnage p1){
+    p1.agi += 25;
+}
