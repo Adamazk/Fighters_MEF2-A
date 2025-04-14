@@ -1,4 +1,11 @@
-include<stdio.h>
+typedef struct{
+    char nom;
+    char description;
+    int tours_actif;
+    int nb_recharge;
+}technique_spe;
+
+
 typedef struct{
     char nom;
     int pv;
@@ -7,18 +14,20 @@ typedef struct{
     int def;
     int agi;
     int vit;
-    technique spe;
+    technique_spe spe1;
+    technique_spe spe2;
+    technique_spe spe3;
 }personnage;
 
 typedef struct{
     char nom;
-    personnage membre;
+    personnage membre1;
+    personnage membre2;
+    personnage membre3;
+    int pv = membre1.pv + membre2.pv + membre3.pv;
 }equipe;
 
-typedef struct{
-    char nom;
-    char description;
-}technique_spe;
+
 
 void tech1(personnage p1){
     p1.def += p1.def*50/100;
@@ -26,5 +35,80 @@ void tech1(personnage p1){
 }
 
 void tech2(personnage p1){
-    p1.agi += 25;
+    p1.agi += p1.agi*25/100;
+}
+
+int vitesse_equipe(equipe eq){
+    res = eq.membre1.vit;
+    if(eq.membre2.vit > res){
+        res = eq.membre2.vit;
+    }
+    if(eq.membre3.vit > res){
+        res = eq.membre3.vit;
+    }
+    return res;
+    
+}
+
+
+personnage vitesse_equipe_membre(equipe eq){
+    res = eq.membre1;
+    if(eq.membre2.vit > res.mem){
+        res = eq.membre2;
+    }
+    if(eq.membre3.vit > res){
+        res = eq.membre3;
+    }
+    return res;
+    
+}
+
+
+void attaque(personnage perso1,personnage perso2){
+    perso1.pv - ((perso2.att/perso1.def)+10);
+}
+
+int combat(equipe eq1, equipe eq2){
+    int cible,r;
+    while(eq1.pv >0 && eq2.pv>0);
+    if(vitesse_equipe(eq1) > vitesse_equipe(eq2)){
+        personnage premier = vitesse_equipe_membre(eq1);
+        printf("au tour de l'equipe %c"eq1.nom);
+        printf("que voulez vous faire?");
+        printf("1:attaquer");
+        printf("2:"premier.spe1.nom);
+        printf(\n);
+        printf("2:"premier.spe1.description);
+        printf(\n);
+        printf("3:"premier.spe2.nom);
+        printf(\n);
+        printf("3:"premier.spe2.description);
+        printf(\n);
+        printf("4:"premier.spe3.nom);
+        printf(\n);
+        printf("4:"premier.spe3.description);
+        scanf("/d",&c);
+        if(c == 1){
+            printf("quelle cible?");
+            printf("1:%c"eq2.membre1.nom);
+            printf("2:%c"eq2.membre2.nom);
+            printf("3:%c"eq2.membre3.nom);
+            scanf("%d",&cible);
+            attaque(premier,cible);
+        }
+        else if(c==2){
+            printf("quelle cible?");
+            printf("1:%c"eq2.membre1.nom);
+            printf("2:%c"eq2.membre2.nom);
+            printf("3:%c"eq2.membre3.nom);
+            scanf("%d",&cible);
+            premier.spe1
+
+
+
+        }
+    }
+
+
+
 }
