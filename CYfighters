@@ -119,7 +119,7 @@ int combat(equipe eq1, equipe eq2){
             printf("2:%c",eq2.membre2.nom);
             printf("3:%c",eq2.membre3.nom);
             scanf("%d",&cible);
-            premier.spe1;
+            premier.spe1;   
 
 
 
