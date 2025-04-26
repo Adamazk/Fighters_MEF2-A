@@ -96,16 +96,24 @@ int pv_equipe(equipe equipe1) {
 
 personnage* vitesse_equipe_membre(equipe *equipe) {
     personnage *resultat = &equipe->membre1;
-    if (equipe->membre2.vit > resultat->vit) resultat = &equipe->membre2;
-    if (equipe->membre3.vit > resultat->vit) resultat = &equipe->membre3;
+    if (equipe->membre2.vit > resultat->vit){
+    resultat = &equipe->membre2;
+    }
+    if (equipe->membre3.vit > resultat->vit){
+    resultat = &equipe->membre3;
+    }
     return resultat;
 }
 
 
 personnage* vitesse_equipe_membre(equipe *equipe) {
     personnage *resultat = &equipe->membre1;
-    if (equipe->membre2.vit > resultat->vit) resultat = &equipe->membre2;
-    if (equipe->membre3.vit > resultat->vit) resultat = &equipe->membre3;
+    if (equipe->membre2.vit > resultat->vit){
+    resultat = &equipe->membre2;
+    }
+    if (equipe->membre3.vit > resultat->vit){
+    resultat = &equipe->membre3;
+    }
     return resultat;
 }
 void clear_terminal() {
@@ -172,14 +180,26 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
 
         // Afficher la santé des membres
         printf("Équipe %s:\n", equipe1.nom);
-        if (mode >= 1 && equipe1.membre1.pv > 0) printf("  %s: %d/%d PV\n", equipe1.membre1.nom, equipe1.membre1.pv, equipe1.membre1.pvmax);
-        if (mode >= 2 && equipe1.membre2.pv > 0) printf("  %s: %d/%d PV\n", equipe1.membre2.nom, equipe1.membre2.pv, equipe1.membre2.pvmax);
-        if (mode == 3 && equipe1.membre3.pv > 0) printf("  %s: %d/%d PV\n", equipe1.membre3.nom, equipe1.membre3.pv, equipe1.membre3.pvmax);
-
+        if (mode >= 1 && equipe1.membre1.pv > 0){
+        printf("  %s: %d/%d PV\n", equipe1.membre1.nom, equipe1.membre1.pv, equipe1.membre1.pvmax);
+        }
+        if (mode >= 2 && equipe1.membre2.pv > 0){
+        printf("  %s: %d/%d PV\n", equipe1.membre2.nom, equipe1.membre2.pv, equipe1.membre2.pvmax);
+        }
+        if (mode == 3 && equipe1.membre3.pv > 0){ 
+        printf("  %s: %d/%d PV\n", equipe1.membre3.nom, equipe1.membre3.pv, equipe1.membre3.pvmax);
+        }
+        
         printf("Équipe %s:\n", equipe2.nom);
-        if (mode >= 1 && equipe2.membre1.pv > 0) printf("  %s: %d/%d PV\n", equipe2.membre1.nom, equipe2.membre1.pv, equipe2.membre1.pvmax);
-        if (mode >= 2 && equipe2.membre2.pv > 0) printf("  %s: %d/%d PV\n", equipe2.membre2.nom, equipe2.membre2.pv, equipe2.membre2.pvmax);
-        if (mode == 3 && equipe2.membre3.pv > 0) printf("  %s: %d/%d PV\n", equipe2.membre3.nom, equipe2.membre3.pv, equipe2.membre3.pvmax);
+        if (mode >= 1 && equipe2.membre1.pv > 0){
+        printf("  %s: %d/%d PV\n", equipe2.membre1.nom, equipe2.membre1.pv, equipe2.membre1.pvmax);
+        }
+        if (mode >= 2 && equipe2.membre2.pv > 0){
+        printf("  %s: %d/%d PV\n", equipe2.membre2.nom, equipe2.membre2.pv, equipe2.membre2.pvmax);
+        }
+        if (mode == 3 && equipe2.membre3.pv > 0){
+        printf("  %s: %d/%d PV\n", equipe2.membre3.nom, equipe2.membre3.pv, equipe2.membre3.pvmax);
+        }
 
         if (tour % 2) {
             printf("Au tour de l'équipe %s\n", equipe1.nom);
@@ -211,9 +231,15 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
         if (choix == 1) {
             printf("Quelle cible ?\n");
             if (tour % 2) {
-                if (mode >= 1 && equipe2.membre1.pv > 0) printf("1: %s\n", equipe2.membre1.nom);
-                if (mode >= 2 && equipe2.membre2.pv > 0) printf("2: %s\n", equipe2.membre2.nom);
-                if (mode == 3 && equipe2.membre3.pv > 0) printf("3: %s\n", equipe2.membre3.nom);
+                if (mode >= 1 && equipe2.membre1.pv > 0){
+                printf("1: %s\n", equipe2.membre1.nom);
+                }
+                if (mode >= 2 && equipe2.membre2.pv > 0){
+                printf("2: %s\n", equipe2.membre2.nom);
+                }
+                if (mode == 3 && equipe2.membre3.pv > 0){
+                printf("3: %s\n", equipe2.membre3.nom);
+                }
                 if (scanf("%d", &cible) != 1 || cible < 1 || cible > mode || 
                     (cible == 1 && equipe2.membre1.pv <= 0) || 
                     (cible == 2 && equipe2.membre2.pv <= 0) || 
@@ -225,9 +251,15 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
                 cible_personnage = (cible == 1) ? &equipe2.membre1 :
                                    (cible == 2) ? &equipe2.membre2 : &equipe2.membre3;
             } else {
-                if (mode >= 1 && equipe1.membre1.pv > 0) printf("1: %s\n", equipe1.membre1.nom);
-                if (mode >= 2 && equipe1.membre2.pv > 0) printf("2: %s\n", equipe1.membre2.nom);
-                if (mode == 3 && equipe1.membre3.pv > 0) printf("3: %s\n", equipe1.membre3.nom);
+                if (mode >= 1 && equipe1.membre1.pv > 0){
+                printf("1: %s\n", equipe1.membre1.nom);
+                }
+                if (mode >= 2 && equipe1.membre2.pv > 0){
+                printf("2: %s\n", equipe1.membre2.nom);
+                }
+                if (mode == 3 && equipe1.membre3.pv > 0){
+                printf("3: %s\n", equipe1.membre3.nom);
+                }
                 if (scanf("%d", &cible) != 1 || cible < 1 || cible > mode || 
                     (cible == 1 && equipe1.membre1.pv <= 0) || 
                     (cible == 2 && equipe1.membre2.pv <= 0) || 
