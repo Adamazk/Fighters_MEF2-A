@@ -36,90 +36,9 @@ typedef struct {
 } equipe;
 
 
-
-int combat_1v1(personnage *perso1, personnage *perso2) {
-    int tour = 1;
-
-    while (perso1->pv > 0 && perso2->pv > 0) {
-        clear_terminal(); // Nettoyer le terminal au début de chaque tour
-        printf("\n--- Tour %d ---\n", tour);
-        printf("%s: %d/%d PV | %s: %d/%d PV\n", perso1->nom, perso1->pv, perso1->pvmax, perso2->nom, perso2->pv, perso2->pvmax);
-
-        personnage *attaquant = (tour % 2) ? perso1 : perso2;
-        personnage *cible = (tour % 2) ? perso2 : perso1;
-
-        printf("Au tour de %s\n", attaquant->nom);
-        printf("Que voulez-vous faire ?\n");
-        printf("1: Attaquer\n");
-        printf("2: %s - %s\n", attaquant->spe1.nom, attaquant->spe1.description);
-        printf("3: %s - %s\n", attaquant->spe2.nom, attaquant->spe2.description);
-        printf("4: %s - %s\n", attaquant->spe3.nom, attaquant->spe3.description);
-
-        int choix;
-        if (scanf("%d", &choix) != 1) {
-            printf("Entrée invalide. Tour ignoré.\n");
-            while (getchar() != '\n'); // Effacer l'entrée invalide
-            continue;
-        }
-
-        if (choix == 1) {
-            attaque(attaquant, cible);
-        } else if (choix == 2) {
-            appliquer_special(&attaquant->spe1, attaquant, cible);
-        } else if (choix == 3) {
-            appliquer_special(&attaquant->spe2, attaquant, cible);
-        } else if (choix == 4) {
-            appliquer_special(&attaquant->spe3, attaquant, cible);
-        } else {
-            printf("Choix invalide. Tour ignoré.\n");
-            continue;
-        }
-
-        tour++;
-    }
-
-    clear_terminal(); // Nettoyer le terminal avant d'afficher le résultat final
-    if (perso1->pv <= 0) {
-        printf("%s a gagné !\n", perso2->nom);
-        return 2;
-    } else {
-        printf("%s a gagné !\n", perso1->nom);
-        return 1;
-    }
-}
-
-
-
 int pv_equipe(equipe equipe1) {
     return equipe1.membre1.pv + equipe1.membre2.pv + equipe1.membre3.pv;
 }
-
-personnage* vitesse_equipe_membre(equipe *equipe) {
-    personnage *resultat = &equipe->membre1;
-    if (equipe->membre2.vit > resultat->vit){
-    resultat = &equipe->membre2;
-    }
-    if (equipe->membre3.vit > resultat->vit){
-    resultat = &equipe->membre3;
-    }
-    return resultat;
-}
-
-
-personnage* vitesse_equipe_membre(equipe *equipe) {
-    personnage *resultat = &equipe->membre1;
-    if (equipe->membre2.vit > resultat->vit){
-    resultat = &equipe->membre2;
-    }
-    if (equipe->membre3.vit > resultat->vit){
-    resultat = &equipe->membre3;
-    }
-    return resultat;
-}
-void clear_terminal() {
-    printf("\033[H\033[J"); // Séquence ANSI pour nettoyer le terminal
-}
-
 
 void attaque(personnage *attaquant, personnage *cible) {
     afficher_animation_attaque(attaquant->nom, cible->nom); // Ajouter animation
@@ -129,7 +48,7 @@ void attaque(personnage *attaquant, personnage *cible) {
     if (cible->pv < 0) cible->pv = 0;
 
     // Afficher le changement de PV
-    printf("💔 %s attaque %s et inflige %d dégâts !\n", attaquant->nom, cible->nom, degats);
+    printf("💔 %s attaque %s et inflige %d dégâts \n", attaquant->nom, cible->nom, degats);
     printf("PV de %s : %d --> %d\n", cible->nom, pv_avant, cible->pv);
 
     if (cible->pv == 0) {
@@ -200,23 +119,35 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
         if (mode == 3 && equipe2.membre3.pv > 0){
         printf("  %s: %d/%d PV\n", equipe2.membre3.nom, equipe2.membre3.pv, equipe2.membre3.pvmax);
         }
-
         if (tour % 2) {
             printf("Au tour de l'équipe %s\n", equipe1.nom);
             attaquant = vitesse_equipe_membre(&equipe1);
             while (attaquant->pv <= 0) { // Sauter les personnages morts
-                attaquant = (attaquant == &equipe1.membre1) ? &equipe1.membre2 :
-                            (attaquant == &equipe1.membre2) ? &equipe1.membre3 : &equipe1.membre1;
-            }
-        } else {
-            printf("Au tour de l'équipe %s\n", equipe2.nom);
-            attaquant = vitesse_equipe_membre(&equipe2);
-            while (attaquant->pv <= 0) { // Sauter les personnages morts
-                attaquant = (attaquant == &equipe2.membre1) ? &equipe2.membre2 :
-                            (attaquant == &equipe2.membre2) ? &equipe2.membre3 : &equipe2.membre1;
+                if (attaquant == &equipe1.membre1) {
+                 attaquant = &equipe1.membre2;
+                } else if (attaquant == &equipe1.membre2) {
+                attaquant = &equipe1.membre3;
+                } else { // Donc attaquant == membre3
+              attaquant = &equipe1.membre1;
+                }
             }
         }
 
+       else {
+    printf("Au tour de l'équipe %s\n", equipe2.nom);
+    attaquant = vitesse_equipe_membre(&equipe2);
+    while (attaquant->pv <= 0) { // Sauter les personnages morts
+        if (attaquant == &equipe2.membre1) {
+            attaquant = &equipe2.membre2;
+        } else if (attaquant == &equipe2.membre2) {
+            attaquant = &equipe2.membre3;
+        } else { // Donc attaquant == membre3
+            attaquant = &equipe2.membre1;
+            }
+        }
+    }
+
+      
         printf("Que voulez-vous faire ?\n");
         printf("1: Attaquer\n");
         printf("2: %s - %s\n", attaquant->spe1.nom, attaquant->spe1.description);
@@ -268,8 +199,14 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
                     while (getchar() != '\n'); // Effacer l'entrée invalide
                     continue;
                 }
-                cible_personnage = (cible == 1) ? &equipe1.membre1 :
-                                   (cible == 2) ? &equipe1.membre2 : &equipe1.membre3;
+               if (cible == 1) {
+                    cible_personnage = &equipe1.membre1;
+            } else if (cible == 2) {
+                    cible_personnage = &equipe1.membre2;
+            } else { // Donc cible == 3
+                    cible_personnage = &equipe1.membre3;
+            }
+
             }
             attaque(attaquant, cible_personnage);
         } else if (choix == 2) {
@@ -288,46 +225,7 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
         equipe2.pv = pv_equipe(equipe2);
         tour++;
     }
-int combat_1v1(personnage *perso1, personnage *perso2) {
-    int tour = 1;
 
-    while (perso1->pv > 0 && perso2->pv > 0) {
-        clear_terminal(); // Nettoyer le terminal au début de chaque tour
-        printf("\n--- Tour %d ---\n", tour);
-        printf("%s: %d/%d PV | %s: %d/%d PV\n", perso1->nom, perso1->pv, perso1->pvmax, perso2->nom, perso2->pv, perso2->pvmax);
-
-        personnage *attaquant = (tour % 2) ? perso1 : perso2;
-        personnage *cible = (tour % 2) ? perso2 : perso1;
-
-        printf("Au tour de %s\n", attaquant->nom);
-        printf("Que voulez-vous faire ?\n");
-        printf("1: Attaquer\n");
-        printf("2: %s - %s\n", attaquant->spe1.nom, attaquant->spe1.description);
-        printf("3: %s - %s\n", attaquant->spe2.nom, attaquant->spe2.description);
-        printf("4: %s - %s\n", attaquant->spe3.nom, attaquant->spe3.description);
-
-        int choix;
-        if (scanf("%d", &choix) != 1) {
-            printf("Entrée invalide. Tour ignoré.\n");
-            while (getchar() != '\n'); // Effacer l'entrée invalide
-            continue;
-        }
-
-        if (choix == 1) {
-            attaque(attaquant, cible);
-        } else if (choix == 2) {
-            appliquer_special(&attaquant->spe1, attaquant, cible);
-        } else if (choix == 3) {
-            appliquer_special(&attaquant->spe2, attaquant, cible);
-        } else if (choix == 4) {
-            appliquer_special(&attaquant->spe3, attaquant, cible);
-        } else {
-            printf("Choix invalide. Tour ignoré.\n");
-            continue;
-        }
-
-        tour++;
-    }
 
     clear_terminal(); // Nettoyer le terminal avant d'afficher le résultat final
     if (perso1->pv <= 0) {
