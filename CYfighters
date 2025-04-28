@@ -3,9 +3,7 @@
 #include <string.h>
 #include <unistd.h> // Pour la fonction sleep
 
-void clear_terminal() {
-    printf("\033[H\033[J"); // Séquence ANSI pour nettoyer le terminal
-}
+
 
 typedef struct {
     char nom[50];
@@ -59,7 +57,7 @@ void attaque(personnage *attaquant, personnage *cible) {
 
 
 void creer_equipe(equipe *equipe, personnage *personnages, int taille) {
-    clear_terminal(); // Nettoyer le terminal avant la création d'une équipe
+    
     printf("Entrez le nom de votre équipe : ");
     scanf(" %[^\n]", equipe->nom);
 
