@@ -254,3 +254,63 @@ void afficher_menu_principal() {
     printf("=====================================\n");
     getchar(); // Attendre que l'utilisateur appuie sur Entrée
 }
+
+
+oid afficher_animation_speciale(const char *attaquant, const char *cible, const char *type) {
+    printf("\n");
+    printf("   ✨ %s utilise %s sur %s !\n", attaquant, type, cible);
+    if (strcmp(type, "Foudre") == 0) {
+        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
+        printf("      ⚡             O\n");
+        printf("     /|\\           /|\\\n");
+        printf("     / \\           / \\\n");
+        sleep(1);
+
+        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
+        printf("      ⚡  -->       O\n");
+        printf("     /|\\           /|\\\n");
+        printf("     / \\           / \\\n");
+        sleep(1);
+
+        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
+        printf("      ⚡             💥\n");
+        printf("     /|\\           /|\\\n");
+        printf("     / \\           / \\\n");
+    } else if (strcmp(type, "Tortue") == 0) {
+        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
+        printf("      🐢             O\n");
+        printf("     /|\\           /|\\\n");
+        printf("     / \\           / \\\n");
+        sleep(1);
+
+        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
+        printf("      🐢  -->       O\n");
+        printf("     /|\\           /|\\\n");
+        printf("     / \\           / \\\n");
+        sleep(1);
+
+        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
+        printf("      🐢             🐌\n");
+        printf("     /|\\           /|\\\n");
+        printf("     / \\           / \\\n");
+    } else {
+        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
+        printf("      ✨             O\n");
+        printf("     /|\\           /|\\\n");
+        printf("     / \\           / \\\n");
+        sleep(1);
+
+        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
+        printf("      ✨  -->       O\n");
+        printf("     /|\\           /|\\\n");
+        printf("     / \\           / \\\n");
+        sleep(1);
+
+        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
+        printf("      ✨             💥\n");
+        printf("     /|\\           /|\\\n");
+        printf("     / \\           / \\\n");
+    }
+    sleep(1);
+    printf("\n");
+}
