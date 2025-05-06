@@ -1,0 +1,31 @@
+#include "equipe.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void creer_equipe(equipe *equipe, personnage *personnages, int taille, int mode) {
+    clear_terminal();
+    printf("Entrez le nom de votre équipe : ");
+    while (getchar() != '\n'); // Vider le buffer avant de lire le nom
+    fgets(equipe->nom, MAX_TEAM_NAME, stdin);
+    equipe->nom[strcspn(equipe->nom, "\n")] = 0;
+
+    printf("Choisissez %d membres pour l'équipe %s :\n", mode, equipe->nom);
+    afficher_personnages_disponibles(personnages, taille);
+
+    int choix[3];
+    for (int i = 0; i < mode; i++) {
+        printf("Choix du membre %d (1-%d) : ", i + 1, taille);
+        choix[i] = lire_entier();
+        
+        while (choix[i] < 1 || choix[i] > taille) {
+            printf("Choix invalide. Réessayez : ");
+            choix[i] = lire_entier();
+        }
+    }
+
+    equipe->membre1 = personnages[choix[0] - 1];
+    if (mode >= 2) equipe->membre2 = personnages[choix[1] - 1];
+    if (mode == 3) equipe->membre3 = personnages[choix[2] - 1];
+    equipe->pv = pv_equipe(*equipe);
+}
