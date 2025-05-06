@@ -16,12 +16,7 @@ void creer_equipe(equipe *equipe, personnage *personnages, int taille, int mode)
     int choix[3];
     for (int i = 0; i < mode; i++) {
         printf("Choix du membre %d (1-%d) : ", i + 1, taille);
-        choix[i] = lire_entier();
-        
-        while (choix[i] < 1 || choix[i] > taille) {
-            printf("Choix invalide. Réessayez : ");
-            choix[i] = lire_entier();
-        }
+        choix[i] = lire_entier_avec_validation(1, taille);
     }
 
     equipe->membre1 = personnages[choix[0] - 1];
@@ -29,3 +24,6 @@ void creer_equipe(equipe *equipe, personnage *personnages, int taille, int mode)
     if (mode == 3) equipe->membre3 = personnages[choix[2] - 1];
     equipe->pv = pv_equipe(*equipe);
 }
+
+
+  
