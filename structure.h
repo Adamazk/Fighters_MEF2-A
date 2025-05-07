@@ -4,7 +4,7 @@
 #include <unistd.h> // Pour la fonction sleep
 #include <limits.h> // Pour INT_MAX
 
-#define MAX_TEAM_NAME 50  // Add this line
+#define MAX_TEAM_NAME 50  
 
 void clear_terminal() {
     printf("\033[H\033[J"); // Séquence ANSI pour nettoyer le terminal
