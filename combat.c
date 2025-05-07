@@ -1,4 +1,9 @@
 #include "combat.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h> // Pour la fonction sleep
+#include <limits.h> // Pour INT_MAX
 
 int lire_entier() {
     char buffer[256];
