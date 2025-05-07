@@ -20,7 +20,7 @@ personnage* vitesse_equipe_membre(equipe* e);
 
 // Fonctions de combat
 void attaque(personnage* attaquant, personnage* cible);
-void appliquer_special(technique_speciale* special, personnage* attaquant, personnage* cible);
+void appliquer_special(technique_speciale *special, personnage* attaquant, personnage* cible);
 int combat(equipe equipe1, equipe equipe2, int mode);
 int combat_1v1(personnage* perso1, personnage* perso2);
 int combat_2v2(equipe equipe1, equipe equipe2);
