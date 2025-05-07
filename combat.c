@@ -27,7 +27,23 @@ int lire_entier() {
     return (int)val;
 }
 
+int lire_entier_avec_validation(int min, int max) {
+    int valeur;
+    while (1) {
+        valeur = lire_entier();
+        if (valeur >= min && valeur <= max) {
+            return valeur;
+        }
+        printf("Veuillez entrer un nombre valide entre %d et %d : ", min, max);
+    }
+}
+
 void attaque(personnage *attaquant, personnage *cible) {
+    if (cible->pv <= 0) {
+        printf("%s est déjà mort(e) et ne peut pas être attaqué(e) !\n", cible->nom);
+        return;
+    }
+
     afficher_animation_attaque(attaquant->nom, cible->nom); // Ajouter animation
     int degats = (attaquant->att / cible->def) + (attaquant->agi / 2);
     int pv_avant = cible->pv; // Stocker les PV initiaux pour comparaison
@@ -219,11 +235,18 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
         equipe2.pv = pv_equipe(equipe2);
         tour++;
     }
-        
 
-        /* Recalculer les PV de l'équipe */
+    clear_terminal();
+    if (equipe1.pv <= 0) {
+        printf("L'équipe %s a gagné !\n", equipe2.nom);
+        return 2;
+    } else {
+        printf("L'équipe %s a gagné !\n", equipe1.nom);
+        return 1;
+    }
+}
 
-        int combat_1v1(personnage *perso1, personnage *perso2) {
+int combat_1v1(personnage *perso1, personnage *perso2) {
     int tour = 1;
 
     while (perso1->pv > 0 && perso2->pv > 0) {
@@ -265,16 +288,6 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
         return 1;
     }
 }
-            clear_terminal(); // Nettoyer le terminal avant d'afficher le résultat final
-            if (perso1->pv <= 0) {
-                printf("%s a gagné !\n", perso2->nom);
-                return 2;
-            } else {
-                printf("%s a gagné !\n", perso1->nom);
-                return 1;
-            }
-        }
-        
         
         int combat_2v2(equipe equipe1, equipe equipe2) {
     // Désactiver le troisième membre de chaque équipe
@@ -459,14 +472,14 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
             }
             appliquer_special(&attaquant->spe3, attaquant, cible_personnage);
         }
-        
-                /* Recalculer les PV de l'équipe */
-                equipe1.pv = equipe1.membre1.pv + equipe1.membre2.pv;
-                equipe2.pv = equipe2.membre1.pv + equipe2.membre2.pv;
-                tour++;
-            }
-        
-            clear_terminal(); // Nettoyer le terminal avant d'afficher le résultat final
+
+        /* Recalculer les PV de l'équipe */
+        equipe1.pv = equipe1.membre1.pv + equipe1.membre2.pv;
+        equipe2.pv = equipe2.membre1.pv + equipe2.membre2.pv;
+        tour++;
+    }
+
+       clear_terminal(); // Nettoyer le terminal avant d'afficher le résultat final
     if (equipe1.pv <= 0) {
         printf("L'équipe %s a gagné !\n", equipe2.nom);
         return 2;
@@ -475,4 +488,5 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
         return 1;
     }
 }
-
+        
+            
