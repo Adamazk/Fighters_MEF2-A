@@ -338,7 +338,7 @@ int combat_2v2(equipe equipe1, equipe equipe2) {
     int cible, choix, tour = 1;
     personnage *attaquant, *cible_personnage;
 
-    /* Initialiser les PV totaux pour 2v2 */
+    // Initialiser les PV totaux pour 2v2 
     equipe1.pv = equipe1.membre1.pv + equipe1.membre2.pv;
     equipe2.pv = equipe2.membre1.pv + equipe2.membre2.pv;
 
@@ -514,7 +514,7 @@ int combat_2v2(equipe equipe1, equipe equipe2) {
             appliquer_special(&attaquant->spe3, attaquant, cible_personnage);
         }
 
-        /* Recalculer les PV de l'équipe */
+        // Recalculer les PV de l'équipe 
         equipe1.pv = equipe1.membre1.pv + equipe1.membre2.pv;
         equipe2.pv = equipe2.membre1.pv + equipe2.membre2.pv;
         tour++;
