@@ -1,6 +1,7 @@
-ifndef EQUIPE_H
+#ifndef EQUIPE_H
 #define EQUIPE_H
 
+#include "structure.h"
 
 // Fonctions de gestion d'équipe
 int pv_equipe(equipe equipe1);
