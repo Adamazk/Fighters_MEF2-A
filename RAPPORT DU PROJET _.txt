@@ -1,0 +1,139 @@
+﻿RAPPORT DU PROJET : 
+ 
+Nous sommes le groupe MEF2-A, composé d’Adam Arezki, Shady Leysen et Yacine Boutadine. Avant d’être un groupe de travail, nous sommes avant tout amis, et cette amitié, née depuis le début de l’année, nous a permis de travailler ensemble sur ce projet important. 
+Nous avons été immédiatement d’accord sur le choix du sujet : CY-Fighters, un projet que nous avons trouvé intéressant en raison de la diversité des modes de jeu que nous pouvions créer, ainsi que de l’univers riche que nous pouvions imaginer pour développer l’histoire et les personnages (voir le Wiki ci-dessous). 
+Nous avons commencé à travailler sur ce projet une semaine avant les vacances d’avril, afin de nous répartir les tâches de manière optimale, car nous ne pouvions pas nous voir durant la deuxième semaine des vacances. Lors de la première semaine, nous nous sommes réunis chez Yacine et avons également organisé des appels sur Discord pour prendre de l’avance et faire les choses sérieusement. 
+L’organisation a donc été bonne et très efficace. Nous n’avons pas rencontré de véritables problèmes au sein du groupe : pas de disputes ni de tensions, car nous nous entendons bien en dehors du cadre du projet et nous avons une excellente communication. 
+Les principales difficultés ont surtout été techniques, notamment lors de la création des fichiers, une partie nouvelle pour nous. Mais dans l’ensemble, tout s’est très bien passé. 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+ 
+WIKI : CYFighters 
+ 
+Histoire : 
+Dans un monde où les ninjas sont les protecteurs des terres, dans le pays appelé Cergioku, chaque clan est dirigé par un maître d’un dojo unique, chacun symbolisant une force élémentaire essentielle à l'équilibre du pays. Chaque dojo se prépare pour le tournoi des 6 dojos qui se déroule tous les 100 ans qui verra s’affronter les 6 maîtres ninja de chaque dojo. Les 6 dojos sont les suivants : 
+Les Dojo du Crépuscule, dirigé par Shad'Kar, est un dojo spécialisé dans l’art de l’esquive et de la dissimulation. Les membres de ce dojo sont des maîtres capables de se fondre dans les ombres.  
+Le Dojo de l’Orage, dirigé par Adamar, est le dojo des ninjas capables d'invoquer la puissance du tonnerre pour leurs attaques rapides. 
+Le Dojo de la Feuille Calme, dirigé par Yassel, est le sanctuaire des ninjas guérisseurs, connectés profondément à la nature.  
+Le Dojo de la Terre Sacrée, dirigé par Raynor, est un lieu où la défense est primordiale. Les ninjas ici sont des maîtres dans la protection contre toute forme d’attaque grâce à leurs techniques basées sur la terre  
+Le Dojo des Éclairs Nocturnes, dirigé par Tymion, est un dojo où la manipulation de la lumière est l'arme secrète des ninjas.  
+Enfin, le Dojo des Flammes Dansantes, dirigé par Joaka, est un dojo où le feu est utilisé non seulement comme une arme, mais aussi pour se défendre. 
+ 
+ 
+ 
+
+
+
+
+
+
+Les 6 Maîtres Ninja Éléments : 
+🎴 Shad'Kar – Ninja de l’Ombre Muette 
+1. Dojo : Dojo du Crépuscule 
+2. Animal totem : Chauve-souris discrète  
+3. Attaques : 
+Frappe du Néant 
+* Effet : Shad'Kar frappe l'ennemi avec une attaque rapide et silencieuse qui perturbe sa concentration. 
+* Réduction : Réduit l'attaque de 25% pendant 6 secondes. 
+ 
+Poids de l'Ombre 
+* Effet : Crée une aura d'ombre autour de l'ennemi, ralentissant ses mouvements. 
+* Réduction : Réduit la vitesse de 30% pendant 7 secondes. 
+ 
+Vitesse de l’Ombre 
+* Effet : Shad'Kar entre dans une phase d'ombre où il devient plus rapide et difficile à toucher. 
+* Augmentation : Augmente la vitesse de 30% pendant 5 secondes 
+⚡ Adamar – Ninja du Tonnerre Furtif 
+1. Dojo : Dojo de l’Orage 
+2. Animal totem : Furet supersonique 
+3. Attaques : 
+Foudre Perforante 
+* Effet : Adamar libère un éclair qui perturbe la mobilité de l'ennemi, diminuant ses réflexes. 
+* Réduction : Réduit l'agilité de 20% pendant 5 secondes. 
+ 
+Courant Déstabilisant 
+* Effet : Un champ électromagnétique qui perturbe l’équilibre de l’adversaire, rendant ses mouvements plus lourds. 
+* Réduction : Réduit la vitesse de 25% pendant 6 secondes. 
+ 
+Éclair Foudroyant 
+* Effet : Adamar concentre toute l’énergie de la foudre dans ses muscles, augmentant sa vitesse d'attaque. Augmentation : Augmente l'attaque de 25% pendant 6 secondes. 
+
+
+
+
+🌿 Yassel – Ninja du Thé Vert Ancestral 
+1. Dojo : Dojo de la Feuille Calme 
+2. Animal totem : Panda jardinier 
+3. Attaques : 
+Morsure des Racines 
+* Effet : Yassel fait surgir des racines du sol qui piègent l'ennemi et ralentissent ses mouvements. 
+* Réduction : Réduit la vitesse de 35% pendant 6 secondes. 
+ 
+Souffle de la Terre 
+* Effet : Invoque un vent puissant qui empêche l'ennemi de se concentrer sur ses attaques. 
+* Réduction : Réduit l'attaque de 20% pendant 5 secondes. 
+ 
+Bénédiction du Bambou 
+* Effet : Yassel s'imprègne de la force de la nature, augmentant sa défense et sa capacité à encaisser les coups. 
+* Augmentation : Augmente la défense de 30% pendant 7 secondes. 
+ 
+🧱   Raynor – Ninja du Roc Immuable 
+1. Dojo : Dojo de la Terre Sacrée 
+2. Animal totem : Tortue blindée 
+3. Attaques : 
+Choc Sismique 
+* Effet : Raynor provoque un tremblement de terre qui désoriente l'ennemi et affaiblit sa défense. 
+* Réduction : Réduit la défense de 30% pendant 6 secondes. 
+ 
+Roc Déstabilisant 
+* Effet : Une onde de choc frappe l'ennemi et perturbe son équilibre, réduisant sa capacité à esquiver. 
+* Réduction : Réduit l'agilité de 25% pendant 7 secondes. 
+ 
+Bouclier de Terre 
+* Effet : Raynor invoque une aura de terre solide qui renforce sa défense et sa résistance aux attaques. 
+* Augmentation : Augmente la défense de 40% pendant 8 secondes. 
+
+
+
+
+
+
+⚡🌌 Tymion – Ninja de la Foudre Astrale 
+1. Dojo : Dojo des Éclairs Nocturnes 
+2. Animal totem : Hibou électrique 
+3. Attaques : 
+Choc Distorisonnel 
+* Effet : Tymion manipule les champs électriques pour perturber l'équilibre de l'ennemi, rendant ses attaques moins efficaces. 
+* Réduction : Réduit l'attaque de 20% pendant 5 secondes. 
+ 
+Vortex Magnétique 
+* Effet : Crée un champ magnétique qui ralentit les ennemis et réduit leur vitesse de réaction. 
+* Réduction : Réduit la vitesse de 30% pendant 6 secondes. 
+ 
+Éclat Astral 
+* Effet : Tymion utilise l'énergie des étoiles pour se déplacer plus rapidement et réagir instantanément. 
+* Augmentation : Augmente la vitesse de 30% pendant 6 secondes. 
+ 
+ 
+🔥 Joaka – Ninja du Feu Festif 
+1. Dojo : Dojo des Flammes Dansantes 
+2. Animal totem : Phénix enflammé 
+3. Attaques : 
+Brûlure Mentale 
+* Effet : Joaka envoie une vague de chaleur mentale qui trouble l'esprit de l'ennemi, diminuant sa rapidité. 
+* Réduction : Réduit l'agilité de 25% pendant 5 secondes. 
+ 
+Explosion Incandescente 
+* Effet : Une explosion de feu qui perturbe la défense de l'ennemi, le rendant plus vulnérable. 
+* Réduction : Réduit la défense de 20% pendant 7 secondes. 
+ 
+Flamme Enflammée 
+* Effet : Joaka puise dans l'énergie du Phénix pour augmenter la puissance de ses attaques enflammées. 
+* Augmentation : Augmente l'attaque de 35% pendant 6 secondes.
