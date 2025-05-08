@@ -1,4 +1,6 @@
 #include "equipe.h"
+#include "affichage.h"
+#include "combat.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
