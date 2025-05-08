@@ -214,19 +214,47 @@ int combat(equipe equipe1, equipe equipe2, int mode) {
         if (choix == 1) {
             printf("Quelle cible ?\n");
             if (tour % 2) {
-                if (mode >= 1 && equipe2.membre1.pv > 0) printf("1: %s\n", equipe2.membre1.nom);
-                if (mode >= 2 && equipe2.membre2.pv > 0) printf("2: %s\n", equipe2.membre2.nom);
-                if (mode == 3 && equipe2.membre3.pv > 0) printf("3: %s\n", equipe2.membre3.nom);
+                if (mode >= 1 && equipe2.membre1.pv > 0){ 
+                    printf("1: %s\n", equipe2.membre1.nom);
+                }
+                if (mode >= 2 && equipe2.membre2.pv > 0){
+                    printf("2: %s\n", equipe2.membre2.nom);
+                }
+                if (mode == 3 && equipe2.membre3.pv > 0){
+                    printf("3: %s\n", equipe2.membre3.nom);
+                }
             } else {
-                if (mode >= 1 && equipe1.membre1.pv > 0) printf("1: %s\n", equipe1.membre1.nom);
-                if (mode >= 2 && equipe1.membre2.pv > 0) printf("2: %s\n", equipe1.membre2.nom);
-                if (mode == 3 && equipe1.membre3.pv > 0) printf("3: %s\n", equipe1.membre3.nom);
+                if (mode >= 1 && equipe1.membre1.pv > 0){
+                    printf("1: %s\n", equipe1.membre1.nom);
+                }
+                if (mode >= 2 && equipe1.membre2.pv > 0){
+                    printf("2: %s\n", equipe1.membre2.nom);
+                }
+                if (mode == 3 && equipe1.membre3.pv > 0){
+                    printf("3: %s\n", equipe1.membre3.nom);
+                }
             }
 
             cible = lire_entier_avec_validation(1, mode);
-            cible_personnage = (tour % 2) ? 
-                (cible == 1 ? &equipe2.membre1 : (cible == 2 ? &equipe2.membre2 : &equipe2.membre3)) :
-                (cible == 1 ? &equipe1.membre1 : (cible == 2 ? &equipe1.membre2 : &equipe1.membre3));
+
+            if (tour % 2) {
+                  if (cible == 1) {
+                  cible_personnage = &equipe2.membre1;
+                } else if (cible == 2) {
+                  cible_personnage = &equipe2.membre2;
+                } else {
+                cible_personnage = &equipe2.membre3;
+                }
+          } else {
+                  if (cible == 1) {
+                cible_personnage = &equipe1.membre1;
+                } else if (cible == 2) {
+                cible_personnage = &equipe1.membre2;
+                } else {
+                cible_personnage = &equipe1.membre3;
+                }
+            }
+
             attaque(attaquant, cible_personnage);
         } else if (choix == 2) {
             appliquer_special(&attaquant->spe1, attaquant, cible_personnage);
@@ -259,8 +287,16 @@ int combat_1v1(personnage *perso1, personnage *perso2) {
         printf("\n--- Tour %d ---\n", tour);
         printf("%s: %d/%d PV | %s: %d/%d PV\n", perso1->nom, perso1->pv, perso1->pvmax, perso2->nom, perso2->pv, perso2->pvmax); 
 
-        personnage *attaquant = (tour % 2) ? perso1 : perso2;
-        personnage *cible = (tour % 2) ? perso2 : perso1;
+       personnage *attaquant;
+personnage *cible;
+
+    if (tour % 2) {
+        attaquant = perso1;
+        cible = perso2;
+    } else {
+        attaquant = perso2;
+        cible = perso1;
+    }
 
         printf("Au tour de %s\n", attaquant->nom);
         printf("Que voulez-vous faire ?\n");
