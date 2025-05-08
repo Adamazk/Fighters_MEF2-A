@@ -1,7 +1,7 @@
 #ifndef AFFICHAGE_H
 #define AFFICHAGE_H
 
-#include "structures.h"
+#include "structure.h"
 
 void clear_terminal();
 void afficher_animation_attaque(const char *attaquant, const char *cible);
