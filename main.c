@@ -3,6 +3,10 @@
 #include <string.h>
 #include <unistd.h> // Pour la fonction sleep
 #include <limits.h> // Pour INT_MAX
+#include "structure.h"
+#include "affichage.h"
+#include "combat.h"
+#include "equipe.h"
 
 int main() {
     afficher_introduction(); // Afficher l'introduction narrative
