@@ -1,14 +1,13 @@
+#ifndef STRUCTURE_H
+#define STRUCTURE_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h> // Pour la fonction sleep
 #include <limits.h> // Pour INT_MAX
 
-#define MAX_TEAM_NAME 50  
-
-void clear_terminal() {
-    printf("\033[H\033[J"); // Séquence ANSI pour nettoyer le terminal
-}
+#define MAX_TEAM_NAME 50
 
 typedef struct {
     char nom[50];
@@ -38,7 +37,6 @@ typedef struct {
     int pv;
 } equipe;
 
-int pv_equipe(equipe equipe1) {
-    return equipe1.membre1.pv + equipe1.membre2.pv + equipe1.membre3.pv;
-}
-#endif
+int pv_equipe(equipe equipe1);
+
+#endif /* STRUCTURE_H */
