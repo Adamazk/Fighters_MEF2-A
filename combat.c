@@ -294,7 +294,7 @@ int combat_1v1(personnage *perso1, personnage *perso2) {
     }
 }
         
-        int combat_2v2(equipe equipe1, equipe equipe2) {
+int combat_2v2(equipe equipe1, equipe equipe2) {
     // Désactiver le troisième membre de chaque équipe
     equipe1.membre3.pv = 0;
     equipe2.membre3.pv = 0;
@@ -493,5 +493,4 @@ int combat_1v1(personnage *perso1, personnage *perso2) {
         return 1;
     }
 }
-        
             
