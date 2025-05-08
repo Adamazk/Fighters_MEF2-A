@@ -1,0 +1,49 @@
+- Présentation du jeu : 
+CY Fighters est un jeu de combat au tour par tour où s’affrontent 6 personnages dans différents modes de jeu. 
+L’univers du jeu est Cergioku, un pays où, tous les 100 ans, les six grands maîtres des dojos se réunissent pour un tournoi légendaire. 
+
+Modes de jeu disponibles :
+- Mode de combat 1v1 
+- Mode de combat 2v2 
+- Mode de combat 3v3 
+
+Dans chacun de ces modes, les deux joueurs s'affrontent en choisissant leurs combattants parmi les 6 personnages suivants : 
+- Shad’kar 
+- Adamar  
+- Yassel 
+- Raynor 
+- Joaka  
+- Tymion 
+
+Chaque personnage possède : 
+- 3 attaques spéciales : elles peuvent réduire les statistiques de l’adversaire (agilité, défense, vitesse ou attaque) 
+- 1 attaque classique : qui inflige des dégâts aux points de vie (PV) de l’adversaire 
+
+Organisation du code :
+
+Le code est divisé en plusieurs fichiers pour une meilleure organisation : 
+- affichage.c / affichage.h : gestion du menu d’entrée, du choix des modes de jeu et des animations de combat 
+- combat.c / combat.h : gestion des attaques (classiques et spéciales), des combats et des différents modes 
+- equipe.c / equipe.h : gestion des équipes en fonction du mode sélectionné 
+- structure.c / structure.h : définition des structures (personnages, équipes, etc.) 
+- main.c : programme principal du jeu 
+
+Compilation et exécution : 
+- Pour compiler le jeu, exécuter la commande suivante dans un terminal : make 
+- Puis pour lancer le jeu, utiliser la target : .\projet 
+ 
+
+Commandes de jeu :
+Le jeu se joue uniquement avec le clavier, en utilisant les chiffres entre 1 et 6 : 
+
+Choix des attaques : 
+Lors de votre tour, un menu vous propose les attaques disponibles. 
+Appuyez sur : 
+- 2, 3 ou 4 pour utiliser une attaque spéciale 
+- 1 pour utiliser une attaque classique 
+
+Choix de la cible : 
+Après avoir sélectionné l’attaque, le jeu vous demande de choisir la cible. 
+Appuyez sur un chiffre de 1 à 6 correspondants au personnage que vous souhaitez attaquer.  
+
+Ces commandes simples permettent de jouer facilement et rapidement au jeu, même pour les nouveaux joueurs. Le jeu est très intuitif et guidé. 
