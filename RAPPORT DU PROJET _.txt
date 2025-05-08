@@ -8,13 +8,6 @@ Les principales difficultés ont surtout été techniques, notamment lors de la 
  
  
  
- 
- 
-
-
-
-
- 
 WIKI : CYFighters 
  
 Histoire : 
@@ -27,14 +20,8 @@ Le Dojo des Éclairs Nocturnes, dirigé par Tymion, est un dojo où la manipulat
 Enfin, le Dojo des Flammes Dansantes, dirigé par Joaka, est un dojo où le feu est utilisé non seulement comme une arme, mais aussi pour se défendre. 
  
  
- 
+ Les 6 Maîtres Ninja Éléments : 
 
-
-
-
-
-
-Les 6 Maîtres Ninja Éléments : 
 🎴 Shad'Kar – Ninja de l’Ombre Muette 
 1. Dojo : Dojo du Crépuscule 
 2. Animal totem : Chauve-souris discrète  
@@ -50,6 +37,8 @@ Poids de l'Ombre
 Vitesse de l’Ombre 
 * Effet : Shad'Kar entre dans une phase d'ombre où il devient plus rapide et difficile à toucher. 
 * Augmentation : Augmente la vitesse de 30% pendant 5 secondes 
+
+
 ⚡ Adamar – Ninja du Tonnerre Furtif 
 1. Dojo : Dojo de l’Orage 
 2. Animal totem : Furet supersonique 
@@ -64,8 +53,6 @@ Courant Déstabilisant
  
 Éclair Foudroyant 
 * Effet : Adamar concentre toute l’énergie de la foudre dans ses muscles, augmentant sa vitesse d'attaque. Augmentation : Augmente l'attaque de 25% pendant 6 secondes. 
-
-
 
 
 🌿 Yassel – Ninja du Thé Vert Ancestral 
@@ -99,10 +86,6 @@ Roc Déstabilisant
 Bouclier de Terre 
 * Effet : Raynor invoque une aura de terre solide qui renforce sa défense et sa résistance aux attaques. 
 * Augmentation : Augmente la défense de 40% pendant 8 secondes. 
-
-
-
-
 
 
 ⚡🌌 Tymion – Ninja de la Foudre Astrale 
