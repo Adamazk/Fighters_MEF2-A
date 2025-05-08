@@ -6,9 +6,11 @@
 #include <string.h>
 #include <limits.h>
 #include <unistd.h>
+#include "structure.h"
 
 int lire_entier();
-int lire_entier_avec_validation(int min, int max) {
+int lire_entier_avec_validation(int min, int max);
+
 // Fonctions d'animation
 void clear_terminal();
 void afficher_animation_attaque(const char* attaquant, const char* cible);
