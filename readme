@@ -30,7 +30,7 @@ Le code est divisé en plusieurs fichiers pour une meilleure organisation :
 
 Compilation et exécution : 
 - Pour compiler le jeu, exécuter la commande suivante dans un terminal : make 
-- Puis pour lancer le jeu, utiliser la target : .\projet 
+- Puis pour lancer le jeu, utiliser la target : ./projet 
  
 
 Commandes de jeu :
