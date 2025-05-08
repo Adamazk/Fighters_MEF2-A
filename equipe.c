@@ -27,5 +27,15 @@ void creer_equipe(equipe *equipe, personnage *personnages, int taille, int mode)
     equipe->pv = pv_equipe(*equipe);
 }
 
+personnage* vitesse_equipe_membre(equipe *equipe) {
+    personnage *resultat = &equipe->membre1;
+    if (equipe->membre2.vit > resultat->vit) {
+        resultat = &equipe->membre2;
+    }
+    if (equipe->membre3.vit > resultat->vit) {
+        resultat = &equipe->membre3;
+    }
+    return resultat;
+}
 
   
