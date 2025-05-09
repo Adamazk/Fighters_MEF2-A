@@ -8,7 +8,7 @@
 void creer_equipe(equipe *equipe, personnage *personnages, int taille, int mode) {
     clear_terminal();
     printf("Entrez le nom de votre équipe : ");
-    while (getchar() != '\n') { A SUPPRIMER SAMEDI
+    while (getchar() != '\n') { 
     // Vider le buffer avant de lire le nom
 }
 
