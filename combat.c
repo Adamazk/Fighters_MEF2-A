@@ -12,8 +12,7 @@ int lire_entier() {
     if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
         return -1;
     }
-    
-    // Enlever le newline à la fin si présent
+  
     buffer[strcspn(buffer, "\n")] = 0;
     
     // Vérifier si la chaîne est vide
