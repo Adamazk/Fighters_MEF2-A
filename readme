@@ -35,6 +35,8 @@ Compilation et exécution :
 
 Commandes de jeu :
 Le jeu se joue uniquement avec le clavier, en utilisant les chiffres entre 1 et 6 : 
+Choix des personnages :
+Il y a 6 personnages, selectionner un chiffre entre 1 et 6 pour choisir votre personnage
 
 Choix des attaques : 
 Lors de votre tour, un menu vous propose les attaques disponibles. 
@@ -44,6 +46,6 @@ Appuyez sur :
 
 Choix de la cible : 
 Après avoir sélectionné l’attaque, le jeu vous demande de choisir la cible. 
-Appuyez sur un chiffre de 1 à 6 correspondants au personnage que vous souhaitez attaquer.  
+Appuyez sur un chiffre de 1 à 3 correspondants au personnage que vous souhaitez attaquer.  
 
 Ces commandes simples permettent de jouer facilement et rapidement au jeu, même pour les nouveaux joueurs. Le jeu est très intuitif et guidé. 
