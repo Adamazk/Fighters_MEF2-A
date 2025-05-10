@@ -14,12 +14,12 @@ int main() {
     clear_terminal(); // Nettoyer le terminal après le menu
 
     personnage personnages[] = {
-        {"Shad'Kar", 120, 120, 80, 60, 70, 90, {"Frappe du Néant", "Réduit l'attaque de 25% pendant 5 tours", 0, 0}, {"Poids de l'Ombre", "Réduit la vitesse de 30% pendant 7 tours", 0, 0}, {"Vitesse de l’Ombre", "Augmente la vitesse de 30% pendant 5 tours", 0, 0}},
-        {"Adamar", 100, 100, 90, 50, 80, 100, {"Foudre Perforante", "Réduit l'agilité de 20% pendant 5 tours", 0, 0}, {"Courant Déstabilisant", "Réduit la vitesse de 25% pendant 6 tours", 0, 0}, {"Éclair Foudroyant", "Augmente l'attaque de 25% pendant 6 tours", 0, 0}},
-        {"Yassel", 110, 110, 70, 70, 60, 80, {"Morsure des Racines", "Réduit la vitesse de 35% pendant 6 tours", 0, 0}, {"Souffle de la Terre", "Réduit l'attaque de 20% pendant 5 tours", 0, 0}, {"Bénédiction du Bambou", "Augmente la défense de 30% pendant 7 tours", 0, 0}},
-        {"Raynor", 130, 130, 60, 80, 50, 70, {"Choc Sismique", "Réduit la défense de 30% pendant 6 tours", 0, 0}, {"Roc Déstabilisant", "Réduit l'agilité de 25% pendant 7 tours", 0, 0}, {"Bouclier de Terre", "Augmente la défense de 40% pendant 8 tours", 0, 0}},
-        {"Tymion", 90, 90, 85, 55, 75, 110, {"Choc Distorisonnel", "Réduit l'attaque de 20% pendant 5 tours", 0, 0}, {"Vortex Magnétique", "Réduit la vitesse de 30% pendant 6 tours", 0, 0}, {"Éclat Astral", "Augmente la vitesse de 30% pendant 6 tours", 0, 0}},
-        {"Joaka", 105, 105, 95, 65, 85, 95, {"Brûlure Mentale", "Réduit l'agilité de 25% pendant 5 tours", 0, 0}, {"Explosion Incandescente", "Réduit la défense de 20% pendant 7 tours", 0, 0}, {"Flamme Enflammée", "Augmente l'attaque de 35% pendant 6 tours", 0, 0}}
+        {"Shad'Kar", 90, 90, 80, 60, 70, 90, {"Frappe du Néant", "Réduit l'attaque de 25% pendant 5 tours", 0, 0}, {"Poids de l'Ombre", "Réduit la vitesse de 30% pendant 7 tours", 0, 0}, {"Vitesse de l’Ombre", "Augmente la vitesse de 30% pendant 5 tours", 0, 0}},
+        {"Adamar", 70, 70, 90, 50, 80, 100, {"Foudre Perforante", "Réduit l'agilité de 20% pendant 5 tours", 0, 0}, {"Courant Déstabilisant", "Réduit la vitesse de 25% pendant 6 tours", 0, 0}, {"Éclair Foudroyant", "Augmente l'attaque de 25% pendant 6 tours", 0, 0}},
+        {"Yassel", 80, 80, 70, 70, 60, 80, {"Morsure des Racines", "Réduit la vitesse de 35% pendant 6 tours", 0, 0}, {"Souffle de la Terre", "Réduit l'attaque de 20% pendant 5 tours", 0, 0}, {"Bénédiction du Bambou", "Augmente la défense de 30% pendant 7 tours", 0, 0}},
+        {"Raynor", 100, 100, 60, 80, 50, 70, {"Choc Sismique", "Réduit la défense de 30% pendant 6 tours", 0, 0}, {"Roc Déstabilisant", "Réduit l'agilité de 25% pendant 7 tours", 0, 0}, {"Bouclier de Terre", "Augmente la défense de 40% pendant 8 tours", 0, 0}},
+        {"Tymion", 60, 60, 85, 55, 75, 110, {"Choc Distorisonnel", "Réduit l'attaque de 20% pendant 5 tours", 0, 0}, {"Vortex Magnétique", "Réduit la vitesse de 30% pendant 6 tours", 0, 0}, {"Éclat Astral", "Augmente la vitesse de 30% pendant 6 tours", 0, 0}},
+        {"Joaka", 75, 75, 95, 65, 85, 95, {"Brûlure Mentale", "Réduit l'agilité de 25% pendant 5 tours", 0, 0}, {"Explosion Incandescente", "Réduit la défense de 20% pendant 7 tours", 0, 0}, {"Flamme Enflammée", "Augmente l'attaque de 35% pendant 6 tours", 0, 0}}
     };
 
     int taille_personnages = sizeof(personnages) / sizeof(personnages[0]);
