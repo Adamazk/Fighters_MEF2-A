@@ -1,143 +1,73 @@
 #include "affichage.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include "utilis.h" 
 
-void clear_terminal() {
-    printf("\033[H\033[J"); // Séquence ANSI pour nettoyer le terminal
+
+
+// Fonction qui affiche le menu principal et retourne le choix de l'utilisateur
+int afficher_menu_principal() {
+    clear_terminal(); // Efface le terminal 
+    printf(BOLD YELLOW "=== MENU PRINCIPAL ===\n" RESET); 
+    printf(BOLD CYAN "1) Combat Classique 2v2\n" RESET); // Option 1
+    printf(BOLD GREEN "2) Mode Tournoi\n" RESET); // Option 2
+    printf(BOLD RED "3) Quitter\n" RESET); // Option 3
+    printf(BOLD YELLOW "======================\n" RESET); 
+    printf(BOLD MAGENTA "Fais ton choix : " RESET); 
+
+    return lire_entree_valide(1, 3); // Lit et retourne un choix valide entre 1 et 3
 }
 
-void afficher_animation_attaque(const char *attaquant, const char *cible) {
-    printf("\n");
-    printf("   ⚔️ %s attaque %s !\n", attaquant, cible);
-    printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-    printf("      O             O\n");
-    printf("     /|\\           /|\\\n");
-    printf("     / \\           / \\\n");
-    sleep(1);
-
-    printf("\n");
-    printf("   ⚔️ %s attaque %s !\n", attaquant, cible);
-    printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-    printf("      O  -->       O\n");
-    printf("     /|\\           /|\\\n");
-    printf("     / \\           / \\\n");
-    sleep(1);
-
-    printf("\n");
-    printf("   ⚔️ %s attaque %s !\n", attaquant, cible);
-    printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-    printf("      O             💥\n");
-    printf("     /|\\           /|\\\n");
-    printf("     / \\           / \\\n");
-    sleep(1);
-
-    printf("\n");
-    printf("   %s a infligé des dégâts à %s !\n", attaquant, cible);
-    printf("\n");
+// Fonction qui affiche les options de difficulté
+void afficher_difficulte() {
+    clear_terminal(); // Efface le terminal 
+    printf(BOLD YELLOW "\nChoisis la difficulté :\n" RESET); 
+    printf(BOLD GREEN "1) Facile\n" RESET); // Option 1 : Facile
+    printf(BOLD CYAN "2) Normal\n" RESET); // Option 2 : Normal
+    printf(BOLD RED "3) Difficile\n" RESET); // Option 3 : Difficile
 }
 
-void afficher_animation_speciale(const char *attaquant, const char *cible, const char *type) {
-    printf("\n");
-    printf("   ✨ %s utilise %s sur %s !\n", attaquant, type, cible);
-    if (strcmp(type, "Foudre") == 0) {
-        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-        printf("      ⚡             O\n");
-        printf("     /|\\           /|\\\n");
-        printf("     / \\           / \\\n");
-        sleep(1);
-
-        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-        printf("      ⚡  -->       O\n");
-        printf("     /|\\           /|\\\n");
-        printf("     / \\           / \\\n");
-        sleep(1);
-
-        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-        printf("      ⚡             💥\n");
-        printf("     /|\\           /|\\\n");
-        printf("     / \\           / \\\n");
-    } else if (strcmp(type, "Tortue") == 0) {
-        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-        printf("      🐢             O\n");
-        printf("     /|\\           /|\\\n");
-        printf("     / \\           / \\\n");
-        sleep(1);
-
-        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-        printf("      🐢  -->       O\n");
-        printf("     /|\\           /|\\\n");
-        printf("     / \\           / \\\n");
-        sleep(1);
-
-        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-        printf("      🐢             🐌\n");
-        printf("     /|\\           /|\\\n");
-        printf("     / \\           / \\\n");
-    } else {
-        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-        printf("      ✨             O\n");
-        printf("     /|\\           /|\\\n");
-        printf("     / \\           / \\\n");
-        sleep(1);
-
-        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-        printf("      ✨  -->       O\n");
-        printf("     /|\\           /|\\\n");
-        printf("     / \\           / \\\n");
-        sleep(1);
-
-        printf("   [ %s ]       [ %s ]\n", attaquant, cible);
-        printf("      ✨             💥\n");
-        printf("     /|\\           /|\\\n");
-        printf("     / \\           / \\\n");
-    }
-    sleep(1);
-    printf("\n");
+// Fonction qui permet à l'utilisateur de choisir une difficulté et retourne son choix
+int choisir_difficulte() {
+    afficher_difficulte(); 
+    return lire_entree_valide(1, 3); // Lit et retourne un choix valide entre 1 et 3
 }
 
-void afficher_menu_mode_de_jeu() {
-    clear_terminal();
-    printf("=====================================\n");
-    printf("         CHOIX DU MODE DE JEU        \n");
-    printf("=====================================\n");
-    printf("1: Mode 1v1\n");
-    printf("2: Mode 2v2\n");
-    printf("3: Mode 3v3\n");
-    printf("=====================================\n");
-    printf("Entrez votre choix : ");
+// Fonction qui affiche les dégâts infligés par un attaquant à un défenseur
+void afficher_degats(Perso* attaquant, Perso* defenseur, int degats) {
+    printf(BOLD "%s" RESET " inflige " BOLD RED "%d" RESET " dégâts à " BOLD "%s" RESET "\n", 
+           attaquant->nom, degats, defenseur->nom); // Affiche les noms et les dégâts
 }
 
-void afficher_personnages_disponibles(personnage *personnages, int taille) {
-    printf("\n=== Personnages Disponibles ===\n");
-    for (int i = 0; i < taille; i++) {
-        printf("%d: %s (PV: %d, ATK: %d, DEF: %d, AGI: %d, VIT: %d)\n",
-        i + 1, personnages[i].nom, personnages[i].pvmax, personnages[i].att, personnages[i].def, personnages[i].agi, personnages[i].vit);
-    }
-    printf("===============================\n");
+// Fonction qui affiche l'utilisation d'une attaque spéciale
+void afficher_special(Perso* attaquant, Perso* defenseur, int degats) {
+    printf(BOLD MAGENTA "%s" RESET " utilise " BOLD YELLOW "%s" RESET " et inflige " BOLD RED "%d" RESET " dégâts à " BOLD "%s" RESET "!\n", 
+           attaquant->nom, attaquant->special->nom, degats, defenseur->nom); // Affiche les détails de l'attaque spéciale
 }
 
-void afficher_introduction() {
-    clear_terminal();
-    printf("=====================================\n");
-    printf("       BIENVENUE DANS CERGIOKU       \n");
-    printf("=====================================\n");
-    printf("Dans un monde où les ninjas protègent les terres,\n");
-    printf("le pays de Cergioku est divisé en 6 clans, chacun\n");
-    printf("dirigé par un maître d'un dojo unique symbolisant\n");
-    printf("une force élémentaire essentielle à l'équilibre.\n");
-    printf("\n");
-    printf("Tous les 100 ans, le tournoi des 6 dojos détermine\n");
-    printf("le ninja suprême. Préparez-vous à représenter votre\n");
-    printf("dojo et à combattre pour la gloire et l'équilibre !\n");
-    printf("=====================================\n");
-    printf("Appuyez sur Entrée pour continuer...\n");
-    getchar(); // Attendre que l'utilisateur appuie sur Entrée
+// Fonction qui affiche un message lorsque le défenseur esquive une attaque
+void afficher_esquive(Perso* defenseur) {
+    printf(BOLD GREEN "%s esquive l'attaque avec succès!" RESET "\n", defenseur->nom); // Affiche le nom du défenseur
 }
 
-void afficher_menu_principal() {
-    clear_terminal();
-    printf("=====================================\n");
-    printf("       WELCOME TO CY FIGHTERS     \n");
-    printf("=====================================\n");
-    printf("  Appuyez sur Entrée pour commencer  \n");
-    printf("=====================================\n");
-    getchar(); // Attendre que l'utilisateur appuie sur Entrée
+// Fonction qui affiche un message lorsque le personnage active un bouclier
+void afficher_shield(Perso* perso) {
+    printf(BOLD CYAN "%s active un bouclier" RESET "\n", perso->nom); // Affiche le nom du personnage
 }
+
+// Fonction qui affiche un message lorsque le personnage est mis KO
+void afficher_ko(Perso* perso) {
+    printf(BOLD RED "%s KO!" RESET "\n", perso->nom); // Affiche le nom du personnage
+}
+
+// Fonction qui affiche un message de victoire pour une équipe
+void afficher_victoire(Equipe* equipe) {
+    printf("\n" BOLD GREEN "Victoire de l'équipe %s!" RESET "\n", equipe->nom_equipe); // Affiche le nom de l'équipe gagnante
+}
+
+
+
+
+

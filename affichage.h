@@ -1,14 +1,37 @@
 #ifndef AFFICHAGE_H
 #define AFFICHAGE_H
 
-#include "structure.h"
+#include <stdio.h>
+#include <unistd.h>
+#include "perso.h" // Ensure consistent definitions for Perso and SpecialAttack
+#include "equipe.h"
+#include "tournoi.h"
 
-void clear_terminal();
-void afficher_animation_attaque(const char *attaquant, const char *cible);
-void afficher_animation_speciale(const char *attaquant, const char *cible, const char *type);
-void afficher_menu_mode_de_jeu();
-void afficher_personnages_disponibles(personnage *personnages, int taille);
-void afficher_introduction();
-void afficher_menu_principal();
+// Macros pour les couleurs
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define BLUE "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN "\033[36m"
+#define BOLD "\033[1m"
 
-#endif
+
+// Menus et interfaces
+int afficher_menu_principal();
+void afficher_difficulte();
+int choisir_difficulte();
+
+// Affichage combat
+void afficher_action(Perso* perso, int action);
+void afficher_degats(Perso* attaquant, Perso* defenseur, int degats);
+void afficher_special(Perso* attaquant, Perso* defenseur, int degats);
+void afficher_esquive(Perso* defenseur);
+void afficher_shield(Perso* perso);
+void afficher_ko(Perso* perso);
+void afficher_victoire(Equipe* equipe);
+
+
+
+#endif // AFFICHAGE_H

@@ -4,27 +4,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <limits.h>
-#include <unistd.h>
-#include "structure.h"
+#include <time.h>
+#include "perso.h" // Ensure consistent definitions for Perso and SpecialAttack
+#include "equipe.h" // Use centralized definition of Equipe
 
-int lire_entier();
-int lire_entier_avec_validation(int min, int max);
+// Constantes
+#define MAX_PERSOS 10
+#define MAX_TEAM_NAME 50
 
-// Fonctions d'animation
-void clear_terminal();
-void afficher_animation_attaque(const char* attaquant, const char* cible);
-void afficher_animation_speciale(const char* attaquant, const char* cible, const char* type);
+// Fonctions pour le combat
+int appliquer_action(Perso* atk, Perso* def, int action);
+int choisir_action_joueur(Perso* p);
+int choisir_action_ia(Perso* p);
+int choisir_cible(Equipe* equipe);
+void tour_de_combat(Equipe* j, Equipe* ia);
 
-// Fonctions d'équipe
-int pv_equipe(equipe e);
-personnage* vitesse_equipe_membre(equipe* e);
+// Nouvelle fonction pour afficher les personnages et leurs PV
+void afficher_persos_et_pv(Equipe* joueur, Equipe* ia);
+void gerer_jauges(Equipe* equipe) ;
 
-// Fonctions de combat
-void attaque(personnage *attaquant, personnage *cible);
-void appliquer_special(technique_speciale *special, personnage *attaquant, personnage *cible);
-int combat(equipe equipe1, equipe equipe2, int mode);
-int combat_1v1(personnage *perso1, personnage *perso2);
-int combat_2v2(equipe equipe1, equipe equipe2);
-
-#endif /* COMBAT_H */
+#endif // COMBAT_H
